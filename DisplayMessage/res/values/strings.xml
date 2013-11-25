@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DisplayMessage</string>
+    <string name="action_settings">Settings</string>
+    <string name="messaggio">Inserisci testo</string>
+    <string name="send">Invio</string>
+    <string name="title_activity_display_message">DisplayMessage</string>
+    <string name="showMessage"></string>
+
+</resources>
