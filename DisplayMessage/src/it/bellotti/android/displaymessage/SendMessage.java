@@ -13,45 +13,33 @@ import android.widget.EditText;
 
 
 public class SendMessage extends Activity {
-
-	public static final String KEY_ONE = "KEY_ONE";
-	private EditText message;
-	private Button send;
-	Intent i;
-
-
 	
+	private EditText mEditMessage;
+	private Button mSendButton;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_send_message);
-		
-		i = new Intent(this,DisplayMessage.class);	
-		
-		message = (EditText) findViewById(R.id.message);
-		send = (Button) findViewById(R.id.send);
-		
-
+				
+		//Init views
+		mEditMessage = (EditText) findViewById(R.id.message);
+		mSendButton = (Button) findViewById(R.id.send);		
 	
-
-
-	
-	OnClickListener mListener = new OnClickListener(){
-		public void onClick(View v){
-			String s = message.getText().toString();
-			startDisplay(s);
+		mSendButton.setOnClickListener(new OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				String s = mEditMessage.getText().toString();
+				startDisplayMessage(s);
+				
 			}
-		
-	};
-	
-	
-	send.setOnClickListener(mListener);
+		});
 	
 }
 	
-	private void startDisplay(String s){
+	private void startDisplayMessage(String s){
 		Intent i = new Intent(this,DisplayMessage.class);
-		i.putExtra(KEY_ONE,s);
+		i.putExtra(Constants.STRING_KEY,s);
 		startActivity(i);					
 	
 	}
