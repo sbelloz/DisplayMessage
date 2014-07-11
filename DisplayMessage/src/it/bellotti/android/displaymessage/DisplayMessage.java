@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 public class DisplayMessage extends Activity {
 
-	private TextView mShowTextView;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -20,9 +18,9 @@ public class DisplayMessage extends Activity {
 		showText(fText);		
 	}
 	
-	private void showText(String s){
-		mShowTextView = (TextView) findViewById(R.id.showMessage);
-		mShowTextView.setText(s);
+	private void showText(String text){
+        TextView textView = (TextView) findViewById(R.id.showMessage);
+        textView.setText(text);
 	}
 
 	@Override
