@@ -14,8 +14,8 @@ public class DisplayMessage extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_message);
 				
-		String fText = getIntent().getStringExtra(Constants.STRING_KEY);
-		showText(fText);		
+		String text = getIntent().getStringExtra(Constants.STRING_KEY);
+		showText(text);
 	}
 	
 	private void showText(String text){
@@ -25,7 +25,6 @@ public class DisplayMessage extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.display_message, menu);
 		return true;
 	}

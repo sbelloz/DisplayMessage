@@ -31,15 +31,14 @@ public class SendMessage extends Activity {
 			public void onClick(View v) {
 				String s = mEditMessage.getText().toString();
 				startDisplayMessage(s);
-				
 			}
 		});
 	
 }
 	
 	private void startDisplayMessage(String s){
-		Intent i = new Intent(this,DisplayMessage.class);
-		i.putExtra(Constants.STRING_KEY,s);
+		Intent i = new Intent(this, DisplayMessage.class);
+		i.putExtra(Constants.STRING_KEY, s);
 		startActivity(i);					
 	
 	}
