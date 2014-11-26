@@ -3,9 +3,8 @@
 
     <string name="app_name">DisplayMessage</string>
     <string name="action_settings">Settings</string>
-    <string name="messaggio">Inserisci testo</string>
-    <string name="send">Invio</string>
+    <string name="hint_fill_text">Inserisci testo</string>
+    <string name="send">Invia</string>
     <string name="title_activity_display_message">DisplayMessage</string>
-    <string name="showMessage"></string>
 
 </resources>

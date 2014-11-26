@@ -1,5 +1,10 @@
 package it.bellotti.android.displaymessage;
 
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodInfo;
+import android.widget.TextView;
 import com.example.displaymessage.R;
 
 import android.os.Bundle;
@@ -7,22 +12,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 
 
-public class SendMessage extends Activity {
+public class MainActivity
+        extends Activity
+         implements EditText.OnEditorActionListener {
 
     private EditText mEditMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_send_message);
+        setContentView(R.layout.activity_main);
 
         //Init views
         mEditMessage = (EditText) findViewById(R.id.message);
+        mEditMessage.setOnEditorActionListener(this);
     }
 
     public void onClick(View view) {
@@ -31,10 +37,9 @@ public class SendMessage extends Activity {
     }
 
     private void startDisplayMessage(String s) {
-        Intent i = new Intent(this, DisplayMessage.class);
-        i.putExtra(Constants.STRING_KEY, s);
-        startActivity(i);
-
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        intent.putExtra(Constants.STRING_KEY, s);
+        startActivity(intent);
     }
 
     @Override
@@ -42,6 +47,16 @@ public class SendMessage extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.send_message, menu);
         return true;
+    }
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if (EditorInfo.IME_ACTION_DONE == actionId) {
+            String string = mEditMessage.getText().toString();
+            startDisplayMessage(string);
+            return true;
+        }
+        return false;
     }
 }
 
