@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="it.bellotti.android.displaymessage.SendMessage"
+            android:name="it.bellotti.android.displaymessage.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="it.bellotti.android.displaymessage.DisplayMessage"
+            android:name="it.bellotti.android.displaymessage.DisplayMessageActivity"
             android:label="@string/title_activity_display_message" >
         </activity>
     </application>
